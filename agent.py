@@ -114,6 +114,11 @@ def onBluetoothConnected(state, adapter=None):
         time.sleep(1.5)
 
         # switch to AUX
+	# for e39 we have business radio 
+	# we want to switch to CD and relabel CD/T as MP3
+	# catch MID output and resend C/T label as MP3
+	# send CD playing when bluetooth playing input
+	
         ibus.cmd.request_for_radio_mode_switch()
         ibus.cmd.request_for_radio_mode_switch()
     else: # disconnected | reset adapter MAC address and stop RADIO display thread
