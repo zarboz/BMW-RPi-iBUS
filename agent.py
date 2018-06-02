@@ -118,7 +118,9 @@ def onBluetoothConnected(state, adapter=None):
 	# we want to switch to CD and relabel CD/T as MP3
 	# catch MID output and resend C/T label as MP3
 	# send CD playing when bluetooth playing input
-	
+	# 68 xx c0 21 40 00 09 05 05 42 2f 54
+	# replace cd->B/T
+		
         ibus.cmd.request_for_radio_mode_switch()
         ibus.cmd.request_for_radio_mode_switch()
     else: # disconnected | reset adapter MAC address and stop RADIO display thread
