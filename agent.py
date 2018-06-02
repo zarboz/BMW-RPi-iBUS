@@ -123,7 +123,8 @@ def onBluetoothConnected(state, adapter=None):
 	#  18 xx FF 02 01 - announce CD
 	# if 68 xx 18 01 then respond 18 xx 68 02 00
 	# 68 xx 18 xx 01 - CD playing 
-	# 
+	#  if packet.raw == "68 xx 18 01":
+	#		self.ibus.send("18 xx 68 02 00")
 		
         ibus.cmd.request_for_radio_mode_switch()
         ibus.cmd.request_for_radio_mode_switch()

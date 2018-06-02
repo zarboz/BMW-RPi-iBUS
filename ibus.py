@@ -576,6 +576,12 @@ class IBUSCommands(object):
         """
         self.ibus.send("3f03680b5f")
 		#need to figure out what this ibus command does
+	
+	def request_for_radio_cd_playing(self):
+		""
+		""
+		self.ibus.send("68 xx 18 xx 01");
+		
 		
     def request_for_radio_mode_switch(self):
         """
