@@ -120,6 +120,10 @@ def onBluetoothConnected(state, adapter=None):
 	# send CD playing when bluetooth playing input
 	# 68 xx c0 21 40 00 09 05 05 42 2f 54
 	# replace cd->B/T
+	#  18 xx FF 02 01 - announce CD
+	# if 68 xx 18 01 then respond 18 xx 68 02 00
+	# 68 xx 18 xx 01 - CD playing 
+	# 
 		
         ibus.cmd.request_for_radio_mode_switch()
         ibus.cmd.request_for_radio_mode_switch()
