@@ -582,6 +582,11 @@ class IBUSCommands(object):
 		""
 		self.ibus.send("68 xx 18 xx 01");
 		
+	def relabel_cd_player(self):
+		""
+		""
+		self.ibus.send("68 xx c0 21 40 00 09 05 05 42 2f 54");
+		
 		
     def request_for_radio_mode_switch(self):
         """
