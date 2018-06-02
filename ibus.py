@@ -575,13 +575,14 @@ class IBUSCommands(object):
         68 0d 3f a0 30 0d ... - off
         """
         self.ibus.send("3f03680b5f")
-
+		#need to figure out what this ibus command does
+		
     def request_for_radio_mode_switch(self):
         """
         @return 68 03 3f a0 f4
         """
         self.ibus.send("3f04680c0956")
-
+		#as well as this one I believe I can send the toggles for CD/T on/off here 
     def clown_nose_on(self):
         """
         It turns-on "clown nose" under back mirror for 3 seconds
