@@ -339,9 +339,9 @@ class IBUSCommands(object):
                 data = "be"
             data += "20" + str.encode("hex")
 
-        packet = IBUSPacket(source_id="c8", 
+        packet = IBUSPacket(source_id="68", 
                             length="{:02x}".format(length), 
-                            destination_id="80", data="234232" + data)
+                            destination_id="c0", data="234232" + data)
         return packet if packet.is_valid() else False
     
     def print_on_display(self, data=[]):
