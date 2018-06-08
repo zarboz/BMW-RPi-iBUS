@@ -114,8 +114,8 @@ def onBluetoothConnected(state, adapter=None):
         time.sleep(1.5)
 
         # switch to AUX
-        ibus.cmd.request_for_radio_mode_switch()
-        ibus.cmd.request_for_radio_mode_switch()
+        #ibus.cmd.request_for_radio_mode_switch()
+        #ibus.cmd.request_for_radio_mode_switch()
     else: # disconnected | reset adapter MAC address and stop RADIO display thread
         DATA["bluetooth"]["adapter"] = None
         packet = ibus.cmd.get_display_packet("BT OFF", "connect")
@@ -124,7 +124,7 @@ def onBluetoothConnected(state, adapter=None):
         time.sleep(1.5)
 
         # switch back to FM
-        ibus.cmd.request_for_radio_mode_switch()
+        #ibus.cmd.request_for_radio_mode_switch()
 
 def onIBUSpacket(packet):
     global DATA
