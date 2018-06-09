@@ -151,6 +151,12 @@ def onIBUSpacket(packet):
             bluetooth.player_control("prev")
             return
 
+    if packet.raw =="C006683100000D92":
+	if DATA["bluetooth"]["connected"]:
+            print("      -> Previous song")
+            bluetooth.player_control("prev")
+            return
+
     if packet.raw == "5004683b181f":
         print("### Pressed (long): Previous button")
         if DATA["bluetooth"]["connected"]:
@@ -164,7 +170,14 @@ def onIBUSpacket(packet):
             print("      -> Next song")
             bluetooth.player_control("next")
             return
-            
+
+    if packet.raw == "C006683100000C93":
+	print("### Pressed: Next button")
+        if DATA["bluetooth"]["connected"]:
+            print("      -> Next song")
+            bluetooth.player_control("next")
+            return
+
     if packet.raw == "5004683b1116":
         print("### Pressed (long): Next button")
         if DATA["bluetooth"]["connected"]:
