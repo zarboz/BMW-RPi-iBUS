@@ -343,7 +343,21 @@ class IBUSCommands(object):
                             length="{:02x}".format(length), 
                             destination_id="c0", data="234232" + data)
         return packet if packet.is_valid() else False
-    
+
+    def aux_overwrite_prev(self):
+	packet = IBUSPacket(source_id="68",
+			    lenght="16",
+			    destination_id="ff",
+			    data="23002007202020204e4558542020202020202020")
+	self.ibus.send(packet.raw)
+
+    def aux_overwrite_prev(self):
+        packet = IBUSPacket(source_id="68",
+                            lenght="16",
+                            destination_id="ff",
+	   	  	    data="2300200720202020505245562020202020202020")
+        self.ibus.send(packet.raw) 
+
     def print_on_display(self, data=[]):
         for i in range(0, 10):
             time.sleep(.2)
