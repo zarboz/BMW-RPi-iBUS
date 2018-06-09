@@ -345,17 +345,17 @@ class IBUSCommands(object):
         return packet if packet.is_valid() else False
 
     def aux_overwrite_next(self):
-	packet = IBUSPacket(source_id="68",
-			    lenght="16",
-			    destination_id="ff",
-			    data="23002007202020204e4558542020202020202020")
-	self.ibus.send(packet.raw)
+        packet = IBUSPacket(source_id="68", 
+                                    length="16", 
+                                    destination_id="ff", 
+                                    data="23002007202020204e4558542020202020202020")
+        self.ibus.send(packet.raw) 
 
     def aux_overwrite_prev(self):
-        packet = IBUSPacket(source_id="68",
-                            lenght="16",
-                            destination_id="ff",
-	   	  	    data="2300200720202020505245562020202020202020")
+        packet = IBUSPacket(source_id="68", 
+                                    length="16", 
+                                    destination_id="ff", 
+                                    data="2300200720202020505245562020202020202020")
         self.ibus.send(packet.raw) 
 
     def print_on_display(self, data=[]):

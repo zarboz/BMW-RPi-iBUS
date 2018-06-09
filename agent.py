@@ -92,6 +92,8 @@ def onIBUSready():
     ibus.cmd.request_for_sensors()
     ibus.cmd.request_for_radio_status()
     ibus.cmd.request_for_vin()
+    ibus.cmd.aux_overwrite_prev()
+    ibus.cmd.aux_overwrite_next()
 
 def onBluetoothConnected(state, adapter=None):
     global ibus
