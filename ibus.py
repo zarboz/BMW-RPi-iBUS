@@ -344,7 +344,7 @@ class IBUSCommands(object):
                             destination_id="c0", data="234232" + data)
         return packet if packet.is_valid() else False
 
-    def aux_overwrite_prev(self):
+    def aux_overwrite_next(self):
 	packet = IBUSPacket(source_id="68",
 			    lenght="16",
 			    destination_id="ff",
