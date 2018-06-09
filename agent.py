@@ -78,10 +78,6 @@ def set_bitmask(xor, bit):
     return xor
 
 def onIBUSready():
-    ibus.cmd.clown_nose_on()
-    
-    ibus.cmd.reset_fuel_2()
-
     ibus.cmd.request_for_ignition()
     ibus.cmd.request_for_mileage()
     ibus.cmd.request_for_fuel_1()
@@ -92,8 +88,7 @@ def onIBUSready():
     ibus.cmd.request_for_sensors()
     ibus.cmd.request_for_radio_status()
     ibus.cmd.request_for_vin()
-    ibus.cmd.aux_overwrite_prev()
-    ibus.cmd.aux_overwrite_next()
+    
 
 def onBluetoothConnected(state, adapter=None):
     global ibus
@@ -151,12 +146,14 @@ def onIBUSpacket(packet):
         if DATA["bluetooth"]["connected"]:
             print("      -> Previous song")
             bluetooth.player_control("prev")
+	    ibus.cmd.aux_overwrite_prev()
             return
 
     if packet.raw =="C006683100000D92":
 	if DATA["bluetooth"]["connected"]:
             print("      -> Previous song")
             bluetooth.player_control("prev")
+	    ibus.cmd.aux_overwrite_prev()
             return
 
     if packet.raw == "5004683b181f":
@@ -171,6 +168,7 @@ def onIBUSpacket(packet):
         if DATA["bluetooth"]["connected"]:
             print("      -> Next song")
             bluetooth.player_control("next")
+	    ibus.cmd.aux_overwrite_next()
             return
 
     if packet.raw == "C006683100000C93":
@@ -178,6 +176,7 @@ def onIBUSpacket(packet):
         if DATA["bluetooth"]["connected"]:
             print("      -> Next song")
             bluetooth.player_control("next")
+	    ibus.cmd.aux_overwrite_next()
             return
 
     if packet.raw == "5004683b1116":
